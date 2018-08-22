@@ -42,7 +42,6 @@
     <properties>
         <docker.image.prefix>loah8</docker.image.prefix>
     </properties>
-
     <build>
         <plugins>
             <plugin>
@@ -54,12 +53,17 @@
             </plugin>
             <plugin>
                 <groupId>com.spotify</groupId>
-                <artifactId>dockerfile-maven-plugin</artifactId>
+                <artifactId>docker-maven-plugin</artifactId>
                 <configuration>
-                    <repository>${docker.image.prefix}/${project.artifactId}</repository>
-                    <buildArgs>
-                        <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
-                    </buildArgs>
+                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+                    <dockerDirectory>/</dockerDirectory>
+                    <resources>
+                        <resource>
+                            <targetPath>/target</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
                 </configuration>
             </plugin>
         </plugins>
