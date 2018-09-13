@@ -9,4 +9,12 @@ public class MainController {
     public String hello() {
         return "hello";
     }
+
+
+    @GetMapping({
+        "/testSameMapper",
+    })
+    public String test(){
+        return "develop1";
+    }
 }
