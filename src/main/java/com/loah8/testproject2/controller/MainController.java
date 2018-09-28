@@ -1,4 +1,4 @@
-package com.loah8.testproject.controller;
+package com.loah8.testproject2.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
